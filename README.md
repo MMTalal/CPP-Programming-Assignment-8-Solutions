@@ -77,6 +77,7 @@ Dog → 'Woof'
 BigDog → 'Wooow'
 BigDog+Dog → 'Woooooow'
 BigDog+BigDog → 'Wooooooooow'"
+```
 
 * **Example Outputs**:
   ```plaintext
@@ -86,7 +87,6 @@ BigDog+BigDog → 'Wooooooooow'"
   BigDog: "Wooow"
   BigDog greeting Dog: "Woooooow"
   BigDog greeting BigDog: "Wooooooooow"
-```
 
 ---
 
