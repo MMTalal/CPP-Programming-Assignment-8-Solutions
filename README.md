@@ -44,35 +44,39 @@ This repository contains solutions to Assignment 8, focusing on object-oriented 
 classDiagram
     class Animal {
         <<abstract>>
-        #string name
-        +Animal(string name)
-        +{abstract} greets() void
+        - name: string
+        + Animal(name: string)
+        + greets(): void
     }
 
     class Cat {
-        +Cat(string name)
-        +greets() void
+        + Cat(name: string)
+        + greets(): void
     }
 
     class Dog {
-        +Dog(string name)
-        +greets() void
-        +greets(Dog another) void
+        + Dog(name: string)
+        + greets(): void
+        + greets(another: Dog): void
     }
 
     class BigDog {
-        +BigDog(string name)
-        +greets() void
-        +greets(Dog another) void
-        +greets(BigDog another) void
+        + BigDog(name: string)
+        + greets(): void
+        + greets(another: Dog): void
+        + greets(another: BigDog): void
     }
 
     Animal <|-- Cat
     Animal <|-- Dog
     Dog <|-- BigDog
 
-    note for Animal "Polymorphic behavior:\nCat → 'Meow'\nDog → 'Woof'\nBigDog → 'Wooow'\nBigDog+Dog → 'Woooooow'\nBigDog+BigDog → 'Wooooooooow'"
-```
+    note for Animal "Polymorphic behavior:
+Cat → 'Meow'
+Dog → 'Woof'
+BigDog → 'Wooow'
+BigDog+Dog → 'Woooooow'
+BigDog+BigDog → 'Wooooooooow'"
 
 * **Example Outputs**:
   ```plaintext
@@ -82,7 +86,7 @@ classDiagram
   BigDog: "Wooow"
   BigDog greeting Dog: "Woooooow"
   BigDog greeting BigDog: "Wooooooooow"
-  ```
+```
 
 ---
 
@@ -126,35 +130,37 @@ classDiagram
 classDiagram
     class Vehicle {
         <<abstract>>
-        #string Vehicle_Model
-        #string Registration_Number
-        #int Vehicle_Speed
-        #double Fuel_Capacity
-        #double Fuel_Consumption
-        +Vehicle(string, string, int, double, double)
-        +{abstract} Display() void
+        - Vehicle_Model: string
+        - Registration_Number: string
+        - Vehicle_Speed: int
+        - Fuel_Capacity: double
+        - Fuel_Consumption: double
+        + Vehicle(model: string, regNum: string, speed: int, fuelCap: double, fuelConsump: double)
+        + Display(): void
     }
 
     class Truck {
-        -int Data_Member
-        +Truck(string, string, int, double, double, int)
-        +getData_Member() int
-        +setData_Member(int) void
-        +Display() void
+        - Data_Member: int
+        + Truck(model: string, regNum: string, speed: int, fuelCap: double, fuelConsump: double, data: int)
+        + getData_Member(): int
+        + setData_Member(value: int): void
+        + Display(): void
     }
 
     class Bus {
-        -int No_Passangers
-        +Bus(string, string, int, double, double, int)
-        +getNo_Passangers() int
-        +setNo_Passangers(int) void
-        +Display() void
+        - No_Passangers: int
+        + Bus(model: string, regNum: string, speed: int, fuelCap: double, fuelConsump: double, passengers: int)
+        + getNo_Passangers(): int
+        + setNo_Passangers(value: int): void
+        + Display(): void
     }
 
     Vehicle <|-- Truck
     Vehicle <|-- Bus
 
-    note for Vehicle "Polymorphic output:\nTruck shows cargo weight in kg\nBus shows passenger count"
+    note for Vehicle "Polymorphic output:
+Truck shows cargo weight in kg
+Bus shows passenger count"
 ```
 
 * **Example Outputs**:
